@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: footballcoach-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: footballcoach
+      POSTGRES_PASSWORD: footballcoach
+      POSTGRES_DB: footballcoach
+    volumes:
+      - footballcoach_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U footballcoach -d footballcoach"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  footballcoach_pgdata:
