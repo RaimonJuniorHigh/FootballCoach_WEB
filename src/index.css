@@ -1,0 +1,72 @@
+/* The font from the prototype, installed as an npm package (no internet needed). */
+@import "@fontsource-variable/archivo";
+
+@import "tailwindcss";
+
+/* Your own colors. Each --color-* becomes a Tailwind class:
+   --color-brand -> bg-brand, text-brand, border-brand, bg-brand/15, ... */
+@theme {
+  --font-sans: "Archivo Variable", system-ui, sans-serif;
+
+  /* Palette from the prototype. These are the raw colors;
+     the roles below (brand, page, sidebar, ...) point at them. */
+  --color-pitch: #1c4f2a; /* deep green: main buttons, active items */
+  --color-pitch-hover: #256a38;
+  --color-lime: #d7f06b; /* signal colour: anything the AI proposes */
+  --color-lime-hover: #e4f98d;
+  --color-mint: #e4efd9; /* soft green background for tags */
+
+  --color-ink: #10180f; /* main text */
+  --color-body: #3a423a; /* longer paragraphs */
+  --color-muted: #5f665e; /* secondary text */
+
+  --color-canvas: #f4f2ec; /* page background */
+  --color-sand: #e3e0d8; /* secondary buttons, hover */
+  --color-line: #f0eee8; /* dividers, neutral tags */
+  --color-stone: #cfcbc2; /* input borders */
+  --color-avatar: #dfdcd3;
+
+  --color-warn: #9a3412; /* "stalled" */
+  --color-warn-soft: #fdebd8;
+  --color-amber: #8a5a1c; /* "draft" */
+  --color-amber-soft: #f6ebd9;
+
+  /* Brand */
+  --color-brand: var(--color-pitch);
+  --color-brand-light: var(--color-lime);
+
+  /* Page (body) */
+  --color-page: var(--color-canvas);
+  --color-text: var(--color-ink);
+  --color-text-muted: var(--color-muted);
+
+  /* Header */
+  --color-header: var(--color-page);
+  --color-header-border: var(--color-sand);
+  --color-header-text: var(--color-ink);
+  --color-header-icon: var(--color-muted);
+  --color-header-hover: var(--color-sand);
+
+  /* Content cards */
+  --color-card: #ffffff;
+  --color-card-border: var(--color-stone);
+
+  /* Sidebar */
+  --color-sidebar: var(--color-page);
+  --color-sidebar-text: var(--color-body);
+  --color-sidebar-heading: var(--color-ink);
+  --color-sidebar-border: var(--color-sand);
+  --color-sidebar-hover: var(--color-sand);
+
+  /* Dark layer behind the mobile sidebar */
+  --color-overlay: rgb(16 24 15 / 0.55);
+}
+
+/* Page-wide defaults */
+@layer base {
+  body {
+    background-color: var(--color-page);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+  }
+}
