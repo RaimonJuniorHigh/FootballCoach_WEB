@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Plus } from 'lucide-react'
 import Sidebar, { navItems } from './components/Sidebar.jsx'
 import Header from './components/Header.jsx'
+import Greeting from './components/Greeting.jsx'
 import SessionsPage from './components/SessionsPage.jsx'
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
               Nieuwe trainingssessie
             </button>
           )}
+          {active === 'today' && <Greeting />}
         </Header>
 
         <main className="flex-1 overflow-y-auto px-page pt-4 pb-page">
