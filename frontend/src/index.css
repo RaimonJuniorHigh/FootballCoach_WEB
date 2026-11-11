@@ -38,18 +38,16 @@
   /* Page (body) */
   --color-page: var(--color-canvas);
   --color-text: var(--color-ink);
-  --color-text-muted: var(--color-muted);
 
   /* Header */
   --color-header: var(--color-page);
-  --color-header-border: var(--color-sand);
   --color-header-text: var(--color-ink);
   --color-header-icon: var(--color-muted);
   --color-header-hover: var(--color-sand);
 
   /* Content cards */
   --color-card: #ffffff;
-  --color-card-border: var(--color-stone);
+  --color-card-border: var(--color-sand);
 
   /* Sidebar */
   --color-sidebar: var(--color-page);
@@ -60,6 +58,40 @@
 
   /* Dark layer behind the mobile sidebar */
   --color-overlay: rgb(16 24 15 / 0.55);
+  
+  /* ---- Added: global tokens ---- */
+
+  /* Brand roles (so components never need raw palette names) */
+  --color-brand-hover: var(--color-pitch-hover);
+  --color-on-brand: #ffffff;
+
+  /* AI signal */
+  --color-ai: var(--color-lime);
+  --color-ai-text: var(--color-ink);
+
+  /* Font sizes */
+  --text-nav: 0.9375rem;   /* 15px */
+  --text-meta: 0.8125rem;  /* 13px */
+
+  /* Layout */
+  --spacing-page: 1.5rem;     /* 24px */
+  --spacing-sidebar: 16rem;   /* 256px */
+
+  /* Shape */
+  --radius-card: 1rem;        /* same as rounded-2xl */
+}
+
+/* Reusable class bundles. Use them like normal classes: className="btn-primary" */
+@utility btn-primary {
+  @apply inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-on-brand transition-colors hover:bg-brand-hover;
+}
+
+@utility pill {
+  @apply rounded-full px-3 py-1 text-xs font-semibold;
+}
+
+@utility card {
+  @apply rounded-card border border-card-border bg-card;
 }
 
 /* Page-wide defaults */
@@ -68,5 +100,10 @@
     background-color: var(--color-page);
     color: var(--color-text);
     font-family: var(--font-sans);
+  }
+  /* Hand cursor on all clickable buttons (Tailwind v4 removed this default) */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
 }

@@ -22,19 +22,19 @@ export default function Sidebar({ active, onSelect, mobileOpen, onCloseMobile })
       />
 
       <aside
-        className={`fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-sidebar-border bg-sidebar px-4 py-6 text-sidebar-text transition-transform duration-300
+        className={`fixed inset-y-0 left-0 z-40 flex w-sidebar flex-col border-r border-sidebar-border bg-sidebar px-4 py-6 text-sidebar-text transition-transform duration-300
           ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}
           lg:static lg:translate-x-0`}
       >
         {/* Club logo + team */}
         <div className="flex items-center justify-between px-2">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand text-[13px] font-extrabold text-lime">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand text-meta font-extrabold text-brand-light">
               {coach.clubInitials}
             </div>
             <div>
               <div className="font-bold tracking-tight text-sidebar-heading">{coach.club}</div>
-              <div className="text-[13px] text-muted">{coach.team}</div>
+              <div className="text-meta text-muted">{coach.team}</div>
             </div>
           </div>
           <button
@@ -52,14 +52,14 @@ export default function Sidebar({ active, onSelect, mobileOpen, onCloseMobile })
             <button
               key={id}
               onClick={() => onSelect(id)}
-              className={`flex w-full items-center gap-3 rounded-full px-4 py-3 text-[15px] font-semibold transition-colors ${
-                active === id ? 'bg-brand text-white' : 'hover:bg-sidebar-hover'
+              className={`flex w-full items-center gap-3 rounded-full px-4 py-3 text-nav font-semibold transition-colors ${
+                active === id ? 'bg-brand text-on-brand' : 'hover:bg-sidebar-hover'
               }`}
             >
-              <Icon size={20} className="shrink-0" />
+              <Icon size={16} strokeWidth={1.75} className="shrink-0" />
               <span className="flex-1 text-left">{label}</span>
               {soon && (
-                <span className="rounded-full bg-lime px-3 py-1 text-xs font-semibold text-ink">Soon</span>
+                <span className="pill bg-ai text-ai-text">Soon</span>
               )}
             </button>
           ))}
@@ -69,7 +69,7 @@ export default function Sidebar({ active, onSelect, mobileOpen, onCloseMobile })
         <button
           onClick={() => onSelect('account')}
           className={`flex items-center gap-3 rounded-2xl p-2 text-left transition-colors ${
-            active === 'account' ? 'bg-white' : 'hover:bg-sidebar-hover'
+            active === 'account' ? 'bg-card' : 'hover:bg-sidebar-hover'
           }`}
         >
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-avatar text-xs font-bold text-body">
