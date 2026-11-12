@@ -1,6 +1,10 @@
 import { useState } from 'react'
-import { Menu } from 'lucide-react'
+import { Plus } from 'lucide-react'
 import Sidebar, { navItems } from './components/Sidebar.jsx'
+import Header from './components/Header.jsx'
+import Greeting from './components/Greeting.jsx'
+import TodayDateTime from './components/TodayDateTime.jsx'
+import SessionsPage from './components/SessionsPage.jsx'
 
 export default function App() {
   const [active, setActive] = useState('today')
@@ -22,21 +26,27 @@ export default function App() {
       />
 
       <div className="flex flex-1 flex-col overflow-hidden">
-        <header className="flex h-16 items-center gap-3 border-b border-header-border bg-header px-4">
-          <button
-            onClick={() => setMobileOpen(true)}
-            className="rounded-md p-2 text-header-icon hover:bg-header-hover lg:hidden"
-            aria-label="Open sidebar"
-          >
-            <Menu size={20} />
-          </button>
-          <h1 className="text-lg font-semibold text-header-text">{current?.label}</h1>
-        </header>
+        <Header
+          title={active === 'today' ? <Greeting /> : current?.label}
+          onOpenMenu={() => setMobileOpen(true)}
+        >
+          {active === 'sessions' && (
+            <button onClick={() => console.log('nieuwe sessie')} className="btn btn-primary btn-lg">
+              <Plus size={16} />
+              Nieuwe trainingssessie
+            </button>
+          )}
+          {active === 'today' && <TodayDateTime />}
+        </Header>
 
-        <main className="flex-1 overflow-y-auto p-6">
-          <div className="rounded-xl border border-dashed border-card-border bg-card p-8 text-text-muted">
-            {current?.label} content goes here.
-          </div>
+        <main className="flex-1 overflow-y-auto px-page pb-page">
+          {active === 'sessions' ? (
+            <SessionsPage />
+          ) : (
+            <div className="card p-8 text-muted">
+              {current?.label} content goes here.
+            </div>
+          )}
         </main>
       </div>
     </div>
