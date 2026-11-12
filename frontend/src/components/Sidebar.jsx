@@ -22,12 +22,12 @@ export default function Sidebar({ active, onSelect, mobileOpen, onCloseMobile })
       />
 
       <aside
-        className={`fixed inset-y-0 left-0 z-40 flex w-sidebar flex-col border-r border-sidebar-border bg-sidebar px-4 py-6 text-sidebar-text transition-transform duration-300
+        className={`fixed inset-y-0 left-0 z-40 flex w-sidebar flex-col border-r border-sidebar-border bg-sidebar px-4 pb-6 text-sidebar-text transition-transform duration-300
           ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}
           lg:static lg:translate-x-0`}
       >
         {/* Club logo + team */}
-        <div className="flex items-center justify-between px-2">
+        <div className="flex h-topbar items-center justify-between px-2">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand text-meta font-extrabold text-brand-light">
               {coach.clubInitials}
@@ -47,7 +47,7 @@ export default function Sidebar({ active, onSelect, mobileOpen, onCloseMobile })
         </div>
 
         {/* Nav */}
-        <nav className="mt-8 flex flex-1 flex-col gap-1 overflow-y-auto">
+        <nav className="flex flex-1 flex-col gap-1 overflow-y-auto">
           {navItems.map(({ id, label, icon: Icon, soon }) => (
             <button
               key={id}
@@ -68,7 +68,7 @@ export default function Sidebar({ active, onSelect, mobileOpen, onCloseMobile })
         {/* Coach profile */}
         <button
           onClick={() => onSelect('account')}
-          className={`flex items-center gap-3 rounded-2xl p-2 text-left transition-colors ${
+          className={`flex items-center gap-3 rounded-card p-2 text-left transition-colors ${
             active === 'account' ? 'bg-card' : 'hover:bg-sidebar-hover'
           }`}
         >

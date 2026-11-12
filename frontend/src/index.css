@@ -47,7 +47,6 @@
 
   /* Content cards */
   --color-card: #ffffff;
-  --color-card-border: var(--color-sand);
 
   /* Sidebar */
   --color-sidebar: var(--color-page);
@@ -69,21 +68,45 @@
   --color-ai: var(--color-lime);
   --color-ai-text: var(--color-ink);
 
+  /* Secondary button */
+  --color-secondary: var(--color-sand);
+  --color-secondary-hover: var(--color-stone);
+  --color-secondary-text: var(--color-ink);
+
+  /* Keyboard focus ring */
+  --color-focus: var(--color-brand);
+
   /* Font sizes */
   --text-nav: 0.9375rem;   /* 15px */
   --text-meta: 0.8125rem;  /* 13px */
 
   /* Layout */
+  --spacing-topbar: 8rem;     /* 128px: header and sidebar logo row */
   --spacing-page: 1.5rem;     /* 24px */
   --spacing-sidebar: 16rem;   /* 256px */
 
   /* Shape */
-  --radius-card: 1rem;        /* same as rounded-2xl */
+  --radius-card: 1.5rem;      /* 24px, same as rounded-3xl */
 }
 
-/* Reusable class bundles. Use them like normal classes: className="btn-primary" */
+/* Reusable class bundles. Use them like normal classes: className="btn btn-primary" */
+@utility btn {
+  @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition
+    active:translate-y-px
+    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus
+    disabled:pointer-events-none disabled:opacity-50;
+}
+
+@utility btn-lg {
+  @apply px-6 py-3;
+}
+
 @utility btn-primary {
-  @apply inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-on-brand transition-colors hover:bg-brand-hover;
+  @apply bg-brand text-on-brand hover:bg-brand-hover;
+}
+
+@utility btn-secondary {
+  @apply bg-secondary text-secondary-text hover:bg-secondary-hover;
 }
 
 @utility pill {
@@ -91,7 +114,7 @@
 }
 
 @utility card {
-  @apply rounded-card border border-card-border bg-card;
+  @apply rounded-card bg-card;
 }
 
 /* Page-wide defaults */

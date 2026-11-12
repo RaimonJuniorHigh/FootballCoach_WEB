@@ -30,7 +30,7 @@ export default function SessionCard({ title, focus, date, duration, players, sta
         <span className="flex items-center gap-1.5"><Users size={16} />{players} spelers</span>
       </div>
 
-      <button onClick={onOpen} className="btn-primary mt-auto self-start">
+      <button onClick={onOpen} className="btn btn-secondary mt-auto self-start">
         Bekijk training
       </button>
     </article>

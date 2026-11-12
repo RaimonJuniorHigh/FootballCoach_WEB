@@ -2,7 +2,7 @@ import { Menu } from 'lucide-react'
 
 export default function Header({ title, onOpenMenu, children }) {
   return (
-    <header className="flex items-center gap-3 bg-header px-page pt-page pb-2">
+    <header className="flex h-topbar items-center gap-3 bg-header px-page">
       <button
         onClick={onOpenMenu}
         className="rounded-md p-2 text-header-icon hover:bg-header-hover lg:hidden"
