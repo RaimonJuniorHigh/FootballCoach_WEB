@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Routes, Route, useLocation, useNavigate } from 'react-router'
 import { Plus } from 'lucide-react'
 import Sidebar, { navItems } from './components/Sidebar.jsx'
 import Header from './components/Header.jsx'
@@ -6,19 +7,32 @@ import Greeting from './components/Greeting.jsx'
 import TodayDateTime from './components/TodayDateTime.jsx'
 import SessionsPage from './components/SessionsPage.jsx'
 
-export default function App() {
-  const [active, setActive] = useState('today')
-  const [mobileOpen, setMobileOpen] = useState(false)
+// Temporary page for routes that are not built yet
+function Placeholder({ label }) {
+  return <div className="card p-8 text-muted">{label} content goes here.</div>
+}
 
-  // "account" is not in the menu list, so it gets its own title.
-  const current = navItems.find((item) => item.id === active) ?? { label: 'Account' }
+export default function App() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  // Which page are we on? Read it from the URL.
+  const current =
+    navItems.find((item) => item.path === location.pathname) ??
+    (location.pathname === '/account'
+      ? { id: 'account', label: 'Account' }
+      : { id: 'not-found', label: 'Pagina niet gevonden' })
+
+  const active = current.id
 
   return (
     <div className="flex h-screen">
       <Sidebar
         active={active}
         onSelect={(id) => {
-          setActive(id)
+          const item = navItems.find((i) => i.id === id)
+          navigate(item ? item.path : '/account')
           setMobileOpen(false)
         }}
         mobileOpen={mobileOpen}
@@ -27,7 +41,7 @@ export default function App() {
 
       <div className="flex flex-1 flex-col overflow-hidden">
         <Header
-          title={active === 'today' ? <Greeting /> : current?.label}
+          title={active === 'today' ? <Greeting /> : current.label}
           onOpenMenu={() => setMobileOpen(true)}
         >
           {active === 'sessions' && (
@@ -40,13 +54,15 @@ export default function App() {
         </Header>
 
         <main className="flex-1 overflow-y-auto px-page pb-page">
-          {active === 'sessions' ? (
-            <SessionsPage />
-          ) : (
-            <div className="card p-8 text-muted">
-              {current?.label} content goes here.
-            </div>
-          )}
+          <Routes>
+            <Route path="/" element={<Placeholder label="Vandaag" />} />
+            <Route path="/team" element={<Placeholder label="Team" />} />
+            <Route path="/trainingen" element={<SessionsPage />} />
+            <Route path="/oefeningen" element={<Placeholder label="Oefeningen" />} />
+            <Route path="/ai-assistent" element={<Placeholder label="AI Assistant" />} />
+            <Route path="/account" element={<Placeholder label="Account" />} />
+            <Route path="*" element={<Placeholder label="Deze pagina bestaat niet" />} />
+          </Routes>
         </main>
       </div>
     </div>

@@ -3,11 +3,11 @@ import { coach } from '../data/mockData.js'
 
 // The menu. "soon" shows a small lime label for pages that are not built yet.
 export const navItems = [
-  { id: 'today', label: 'Vandaag', icon: House },
-  { id: 'squad', label: 'Team', icon: Users },
-  { id: 'sessions', label: 'Trainingssessies', icon: CalendarDays },
-  { id: 'drills', label: 'Oefeningen', icon: ListChecks },
-  { id: 'assistant', label: 'AI Assistant', icon: Sparkles, soon: true },
+  { id: 'today', label: 'Vandaag', icon: House, path: '/' },
+  { id: 'squad', label: 'Team', icon: Users, path: '/team' },
+  { id: 'sessions', label: 'Trainingssessies', icon: CalendarDays, path: '/trainingen' },
+  { id: 'drills', label: 'Oefeningen', icon: ListChecks, path: '/oefeningen' },
+  { id: 'assistant', label: 'AI Assistant', icon: Sparkles, path: '/ai-assistent', soon: true },
 ]
 
 export default function Sidebar({ active, onSelect, mobileOpen, onCloseMobile }) {
