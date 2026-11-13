@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router'
 import { CalendarDays, House, ListChecks, Sparkles, Users, X } from 'lucide-react'
 import { coach } from '../data/mockData.js'
 
@@ -10,7 +11,7 @@ export const navItems = [
   { id: 'assistant', label: 'AI Assistant', icon: Sparkles, path: '/ai-assistent', soon: true },
 ]
 
-export default function Sidebar({ active, onSelect, mobileOpen, onCloseMobile }) {
+export default function Sidebar({ mobileOpen, onCloseMobile }) {
   return (
     <>
       {/* Mobile backdrop */}
@@ -48,29 +49,36 @@ export default function Sidebar({ active, onSelect, mobileOpen, onCloseMobile })
 
         {/* Nav */}
         <nav className="flex flex-1 flex-col gap-1 overflow-y-auto">
-          {navItems.map(({ id, label, icon: Icon, soon }) => (
-            <button
+          {navItems.map(({ id, label, icon: Icon, path, soon }) => (
+            <NavLink
               key={id}
-              onClick={() => onSelect(id)}
-              className={`flex w-full items-center gap-3 rounded-full px-4 py-3 text-nav font-semibold transition-colors ${
-                active === id ? 'bg-brand text-on-brand' : 'hover:bg-sidebar-hover'
-              }`}
+              to={path}
+              end={path === '/'}
+              onClick={onCloseMobile}
+              className={({ isActive }) =>
+                `flex w-full items-center gap-3 rounded-full px-4 py-3 text-nav font-semibold transition-colors ${
+                  isActive ? 'bg-brand text-on-brand' : 'hover:bg-sidebar-hover'
+                }`
+              }
             >
               <Icon size={16} strokeWidth={1.75} className="shrink-0" />
               <span className="flex-1 text-left">{label}</span>
               {soon && (
                 <span className="pill bg-ai text-ai-text">Soon</span>
               )}
-            </button>
+            </NavLink>
           ))}
         </nav>
 
         {/* Coach profile */}
-        <button
-          onClick={() => onSelect('account')}
-          className={`flex items-center gap-3 rounded-card p-2 text-left transition-colors ${
-            active === 'account' ? 'bg-card' : 'hover:bg-sidebar-hover'
-          }`}
+        <NavLink
+          to="/account"
+          onClick={onCloseMobile}
+          className={({ isActive }) =>
+            `flex items-center gap-3 rounded-card p-2 text-left transition-colors ${
+              isActive ? 'bg-card' : 'hover:bg-sidebar-hover'
+            }`
+          }
         >
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-avatar text-xs font-bold text-body">
             {coach.initials}
@@ -79,7 +87,7 @@ export default function Sidebar({ active, onSelect, mobileOpen, onCloseMobile })
             <div className="truncate text-sm font-semibold text-sidebar-heading">{coach.name}</div>
             <div className="truncate text-xs text-muted">{coach.role}</div>
           </div>
-        </button>
+        </NavLink>
       </aside>
     </>
   )

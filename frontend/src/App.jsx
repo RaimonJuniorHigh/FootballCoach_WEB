@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, useLocation, useNavigate } from 'react-router'
+import { Routes, Route, useLocation } from 'react-router'
 import { Plus } from 'lucide-react'
 import Sidebar, { navItems } from './components/Sidebar.jsx'
 import Header from './components/Header.jsx'
@@ -15,7 +15,6 @@ function Placeholder({ label }) {
 export default function App() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
-  const navigate = useNavigate()
 
   // Which page are we on? Read it from the URL.
   const current =
@@ -29,12 +28,6 @@ export default function App() {
   return (
     <div className="flex h-screen">
       <Sidebar
-        active={active}
-        onSelect={(id) => {
-          const item = navItems.find((i) => i.id === id)
-          navigate(item ? item.path : '/account')
-          setMobileOpen(false)
-        }}
         mobileOpen={mobileOpen}
         onCloseMobile={() => setMobileOpen(false)}
       />
