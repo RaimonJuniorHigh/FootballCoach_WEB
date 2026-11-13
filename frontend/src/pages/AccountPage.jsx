@@ -1,7 +1,7 @@
-import { Link, useNavigate } from 'react-router'
+import { Link } from 'react-router'
 import { ChevronRight, LogOut } from 'lucide-react'
 import Avatar from '../components/Avatar.jsx'
-import { user } from '../data/mockData.js'
+import { useAuth } from '../auth/AuthContext.jsx'
 import { getUserTitle } from '../constants/roles.js'
 
 // How each language code from the database is shown
@@ -11,7 +11,7 @@ const languageLabels = {
 }
 
 export default function AccountPage() {
-  const navigate = useNavigate()
+  const { user } = useAuth()
   const title = getUserTitle(user)
   const isCoach = user.role === 'coach'
 
@@ -33,11 +33,6 @@ export default function AccountPage() {
         ]
       : []),
   ]
-
-  function handleLogout() {
-    // For now: back to the login page. The real logout() comes with the protected pages.
-    navigate('/login')
-  }
 
   return (
     <div className="flex max-w-content flex-col gap-3">
@@ -78,10 +73,10 @@ export default function AccountPage() {
         ))}
       </ul>
 
-      <button onClick={handleLogout} className="btn btn-secondary btn-lg mt-4 self-start">
+      <Link to="/logout" className="btn btn-secondary btn-lg mt-4 self-start">
         <LogOut size={16} />
         Uitloggen
-      </button>
+      </Link>
     </div>
   )
 }

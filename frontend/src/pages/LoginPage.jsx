@@ -1,14 +1,27 @@
-import { useNavigate } from 'react-router'
+import { useState } from 'react'
+import { Navigate, useLocation } from 'react-router'
 import ClubLogo from '../components/ClubLogo.jsx'
 import { club } from '../data/mockData.js'
+import { useAuth } from '../auth/AuthContext.jsx'
 
 export default function LoginPage() {
-  const navigate = useNavigate()
+  const { user, login } = useAuth()
+  const location = useLocation()
+  const [error, setError] = useState('')
+
+  // Logged in (just now, or already)? Go to the page they wanted, or Vandaag.
+  if (user) {
+    return <Navigate to={location.state?.from ?? '/'} replace />
+  }
 
   function handleSubmit(event) {
     event.preventDefault()
-    // For now: straight to Vandaag. Checking credentials comes in the next commit.
-    navigate('/')
+    const form = new FormData(event.currentTarget)
+
+    // On success, the user is set and the redirect above takes over
+    if (!login(form.get('email'), form.get('password'))) {
+      setError('E-mail of wachtwoord klopt niet.')
+    }
   }
 
   return (
@@ -43,6 +56,12 @@ export default function LoginPage() {
             autoComplete="current-password"
             className="input-auth"
           />
+
+          {error && (
+            <p role="alert" className="text-sm font-semibold text-auth-error">
+              {error}
+            </p>
+          )}
 
           <button
             type="submit"

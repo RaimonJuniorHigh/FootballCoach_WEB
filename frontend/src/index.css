@@ -89,6 +89,7 @@
   --color-auth-muted: rgb(255 255 255 / 0.75);        /* club name, tagline, placeholder */
   --color-auth-border: rgb(255 255 255 / 0.5);        /* input edge, 3.7:1 for WCAG; "transparent" to hide */
   --color-auth-focus: var(--color-lime);              /* focus ring on the green page */
+  --color-auth-error: #fecaca;                        /* error text on the green page */
 
   /* Lists */
   --color-divider: var(--color-line);   /* lines between rows */

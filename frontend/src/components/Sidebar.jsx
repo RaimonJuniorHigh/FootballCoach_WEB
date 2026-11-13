@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router'
 import { CalendarDays, House, ListChecks, Sparkles, Users, X } from 'lucide-react'
-import { club, user } from '../data/mockData.js'
+import { club } from '../data/mockData.js'
+import { useAuth } from '../auth/AuthContext.jsx'
 import { getUserTitle } from '../constants/roles.js'
 import Avatar from './Avatar.jsx'
 import ClubLogo from './ClubLogo.jsx'
@@ -15,6 +16,8 @@ export const navItems = [
 ]
 
 export default function Sidebar({ mobileOpen, onCloseMobile }) {
+  const { user } = useAuth()
+
   return (
     <>
       {/* Mobile backdrop */}
