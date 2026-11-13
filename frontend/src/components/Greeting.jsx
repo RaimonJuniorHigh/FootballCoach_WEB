@@ -1,5 +1,5 @@
 import { useNow } from '../hooks/useNow.js'
-import { coach } from '../data/mockData.js'
+import { user } from '../data/mockData.js'
 
 function getGreeting(hour) {
   if (hour < 6) return 'Goedenacht'
@@ -10,7 +10,7 @@ function getGreeting(hour) {
 
 export default function Greeting() {
   const now = useNow()
-  const firstName = coach.name.split(' ')[0]
+  const firstName = user.name.split(' ')[0]
 
   return <>{getGreeting(now.getHours())}, {firstName}</>
 }

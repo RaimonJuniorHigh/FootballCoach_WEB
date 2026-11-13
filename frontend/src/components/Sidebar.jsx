@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router'
 import { CalendarDays, House, ListChecks, Sparkles, Users, X } from 'lucide-react'
-import { coach } from '../data/mockData.js'
+import { club, user } from '../data/mockData.js'
+import { roleLabels } from '../constants/roles.js'
 
 // The menu. "soon" shows a small lime label for pages that are not built yet.
 export const navItems = [
@@ -31,11 +32,11 @@ export default function Sidebar({ mobileOpen, onCloseMobile }) {
         <div className="flex h-topbar items-center justify-between px-2">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand text-meta font-extrabold text-brand-light">
-              {coach.clubInitials}
+              {club.initials}
             </div>
             <div>
-              <div className="font-bold tracking-tight text-sidebar-heading">{coach.club}</div>
-              <div className="text-meta text-muted">{coach.team}</div>
+              <div className="font-bold tracking-tight text-sidebar-heading">{club.name}</div>
+              <div className="text-meta text-muted">{user.team}</div>
             </div>
           </div>
           <button
@@ -70,7 +71,7 @@ export default function Sidebar({ mobileOpen, onCloseMobile }) {
           ))}
         </nav>
 
-        {/* Coach profile */}
+        {/* User profile */}
         <NavLink
           to="/account"
           onClick={onCloseMobile}
@@ -81,11 +82,11 @@ export default function Sidebar({ mobileOpen, onCloseMobile }) {
           }
         >
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-avatar text-xs font-bold text-body">
-            {coach.initials}
+            {user.initials}
           </div>
           <div className="min-w-0">
-            <div className="truncate text-sm font-semibold text-sidebar-heading">{coach.name}</div>
-            <div className="truncate text-xs text-muted">{coach.role}</div>
+            <div className="truncate text-sm font-semibold text-sidebar-heading">{user.name}</div>
+            <div className="truncate text-xs text-muted">{roleLabels[user.role]}</div>
           </div>
         </NavLink>
       </aside>

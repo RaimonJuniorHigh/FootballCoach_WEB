@@ -1,12 +1,17 @@
 // Fake data, until the backend is ready.
 // Later these values will come from an API instead of this file.
 
-export const coach = {
+// The club: known before login (login page, sidebar)
+export const club = {
+  name: 'sv Budel',
+  initials: 'SB',
+}
+
+// The logged-in user. "role" comes from the database: 'coach' or 'player'.
+export const user = {
   name: 'Pep Guardiola',
   initials: 'PG',
-  role: 'Coach',
-  club: 'sv Budel',
-  clubInitials: 'SB',
+  role: 'coach',
   team: 'JO17-1',
 }
 export const sessions = [
