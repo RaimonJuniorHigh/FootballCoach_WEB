@@ -5,12 +5,8 @@ import Sidebar, { navItems } from './components/Sidebar.jsx'
 import Header from './components/Header.jsx'
 import Greeting from './components/Greeting.jsx'
 import TodayDateTime from './components/TodayDateTime.jsx'
-import SessionsPage from './components/SessionsPage.jsx'
-
-// Temporary page for routes that are not built yet
-function Placeholder({ label }) {
-  return <div className="card p-8 text-muted">{label} content goes here.</div>
-}
+import SessionsPage from './pages/SessionsPage.jsx'
+import PlaceholderPage from './pages/PlaceholderPage.jsx'
 
 export default function App() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -48,13 +44,13 @@ export default function App() {
 
         <main className="flex-1 overflow-y-auto px-page pb-page">
           <Routes>
-            <Route path="/" element={<Placeholder label="Vandaag" />} />
-            <Route path="/team" element={<Placeholder label="Team" />} />
+            <Route path="/" element={<PlaceholderPage label="Vandaag" />} />
+            <Route path="/team" element={<PlaceholderPage label="Team" />} />
             <Route path="/trainingen" element={<SessionsPage />} />
-            <Route path="/oefeningen" element={<Placeholder label="Oefeningen" />} />
-            <Route path="/ai-assistent" element={<Placeholder label="AI Assistant" />} />
-            <Route path="/account" element={<Placeholder label="Account" />} />
-            <Route path="*" element={<Placeholder label="Deze pagina bestaat niet" />} />
+            <Route path="/oefeningen" element={<PlaceholderPage label="Oefeningen" />} />
+            <Route path="/ai-assistent" element={<PlaceholderPage label="AI Assistant" />} />
+            <Route path="/account" element={<PlaceholderPage label="Account" />} />
+            <Route path="*" element={<PlaceholderPage label="Deze pagina bestaat niet" />} />
           </Routes>
         </main>
       </div>
