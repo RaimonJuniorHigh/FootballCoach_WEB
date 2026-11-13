@@ -2,6 +2,7 @@ import { NavLink } from 'react-router'
 import { CalendarDays, House, ListChecks, Sparkles, Users, X } from 'lucide-react'
 import { club, user } from '../data/mockData.js'
 import { roleLabels } from '../constants/roles.js'
+import ClubLogo from './ClubLogo.jsx'
 
 // The menu. "soon" shows a small lime label for pages that are not built yet.
 export const navItems = [
@@ -31,9 +32,7 @@ export default function Sidebar({ mobileOpen, onCloseMobile }) {
         {/* Club logo + team */}
         <div className="flex h-topbar items-center justify-between px-2">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand text-meta font-extrabold text-brand-light">
-              {club.initials}
-            </div>
+            <ClubLogo />
             <div>
               <div className="font-bold tracking-tight text-sidebar-heading">{club.name}</div>
               <div className="text-meta text-muted">{user.team}</div>

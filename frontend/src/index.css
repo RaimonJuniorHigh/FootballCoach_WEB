@@ -76,6 +76,20 @@
   /* Keyboard focus ring */
   --color-focus: var(--color-brand);
 
+  /* Accent button (lime) */
+  --color-accent: var(--color-lime);
+  --color-accent-hover: var(--color-lime-hover);
+  --color-accent-text: var(--color-brand);
+
+  /* Login page */
+  --color-auth: var(--color-brand);                   /* page background */
+  --color-auth-input: rgb(255 255 255 / 0.1);         /* slightly lighter than the page */
+  --color-auth-input-focus: rgb(255 255 255 / 0.16);  /* lighter again while typing */
+  --color-auth-text: #ffffff;
+  --color-auth-muted: rgb(255 255 255 / 0.75);        /* club name, tagline, placeholder */
+  --color-auth-border: rgb(255 255 255 / 0.5);        /* input edge, 3.7:1 for WCAG; "transparent" to hide */
+  --color-auth-focus: var(--color-lime);              /* focus ring on the green page */         /* focus ring on the green page */
+
   /* Font sizes */
   --text-nav: 0.9375rem;   /* 15px */
   --text-meta: 0.8125rem;  /* 13px */
@@ -84,9 +98,12 @@
   --spacing-topbar: 8rem;     /* 128px: header and sidebar logo row */
   --spacing-page: 1.5rem;     /* 24px */
   --spacing-sidebar: 16rem;   /* 256px */
+  --spacing-control: 3rem;    /* 48px: height of inputs and buttons that sit together */
 
   /* Shape */
   --radius-card: 1.5rem;      /* 24px, same as rounded-3xl */
+
+  --radius-input: 1rem;   /* inputs follow the card radius */
 }
 
 /* Reusable class bundles. Use them like normal classes: className="btn btn-primary" */
@@ -107,6 +124,17 @@
 
 @utility btn-secondary {
   @apply bg-secondary text-secondary-text hover:bg-secondary-hover;
+}
+
+@utility btn-accent {
+  @apply bg-accent text-accent-text hover:bg-accent-hover;
+}
+
+@utility input-auth {
+  @apply h-control w-full rounded-input border border-auth-border bg-auth-input px-5 text-auth-text transition-colors
+    placeholder:text-auth-muted
+    focus:bg-auth-input-focus
+    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-auth-focus;
 }
 
 @utility pill {

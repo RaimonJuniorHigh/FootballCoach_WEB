@@ -1,11 +1,15 @@
 import { Routes, Route } from 'react-router'
 import AppLayout from './components/AppLayout.jsx'
+import LoginPage from './pages/LoginPage.jsx'
 import SessionsPage from './pages/SessionsPage.jsx'
 import PlaceholderPage from './pages/PlaceholderPage.jsx'
 
 export default function App() {
   return (
     <Routes>
+      {/* Full-screen pages, without sidebar and header */}
+      <Route path="/login" element={<LoginPage />} />
+
       {/* Pages inside the app shell (sidebar + header) */}
       <Route element={<AppLayout />}>
         <Route path="/" element={<PlaceholderPage label="Vandaag" />} />
