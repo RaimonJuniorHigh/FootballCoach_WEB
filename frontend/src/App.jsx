@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router'
 import AppLayout from './components/AppLayout.jsx'
 import LoginPage from './pages/LoginPage.jsx'
+import AccountPage from './pages/AccountPage.jsx'
 import SessionsPage from './pages/SessionsPage.jsx'
 import PlaceholderPage from './pages/PlaceholderPage.jsx'
 
@@ -17,7 +18,12 @@ export default function App() {
         <Route path="/trainingen" element={<SessionsPage />} />
         <Route path="/oefeningen" element={<PlaceholderPage label="Oefeningen" />} />
         <Route path="/ai-assistent" element={<PlaceholderPage label="AI Assistant" />} />
-        <Route path="/account" element={<PlaceholderPage label="Account" />} />
+
+        <Route path="/account" element={<AccountPage />} />
+        <Route path="/account/assistent" element={<PlaceholderPage label="Wat de assistent kan zien" />} />
+        <Route path="/account/team-overdragen" element={<PlaceholderPage label="Team overdragen" />} />
+        <Route path="/account/teamgegevens-verwijderen" element={<PlaceholderPage label="Teamgegevens verwijderen" />} />
+
         <Route path="*" element={<PlaceholderPage label="Deze pagina bestaat niet" />} />
       </Route>
     </Routes>

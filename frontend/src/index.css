@@ -88,7 +88,14 @@
   --color-auth-text: #ffffff;
   --color-auth-muted: rgb(255 255 255 / 0.75);        /* club name, tagline, placeholder */
   --color-auth-border: rgb(255 255 255 / 0.5);        /* input edge, 3.7:1 for WCAG; "transparent" to hide */
-  --color-auth-focus: var(--color-lime);              /* focus ring on the green page */         /* focus ring on the green page */
+  --color-auth-focus: var(--color-lime);              /* focus ring on the green page */
+
+  /* Lists */
+  --color-divider: var(--color-line);   /* lines between rows */
+  --color-danger: var(--color-warn);    /* destructive actions, 7:1 on white */
+
+  /* Avatar */
+  --color-avatar-text: var(--color-body);
 
   /* Font sizes */
   --text-nav: 0.9375rem;   /* 15px */
@@ -96,14 +103,14 @@
 
   /* Layout */
   --spacing-topbar: 8rem;     /* 128px: header and sidebar logo row */
-  --spacing-page: 1.5rem;     /* 24px */
+  --spacing-page: calc((var(--spacing-topbar) - 2.25rem) / 2);   /* = space above the page title, so content is inset evenly from top and left */
   --spacing-sidebar: 16rem;   /* 256px */
   --spacing-control: 3rem;    /* 48px: height of inputs and buttons that sit together */
+  --container-content: 32rem;   /* 512px: max width of one-column pages (account, forms) */
 
   /* Shape */
   --radius-card: 1.5rem;      /* 24px, same as rounded-3xl */
-
-  --radius-input: 1rem;   /* inputs follow the card radius */
+  --radius-input: 1rem;       /* 16px: soft corners at 48px height (half the height would make a pill) */
 }
 
 /* Reusable class bundles. Use them like normal classes: className="btn btn-primary" */

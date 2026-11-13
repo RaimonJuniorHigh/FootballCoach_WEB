@@ -6,17 +6,24 @@ import Header from './Header.jsx'
 import Greeting from './Greeting.jsx'
 import TodayDateTime from './TodayDateTime.jsx'
 
+// Pages that are not in the nav, with their header title
+const otherPages = [
+  { id: 'account', path: '/account', label: 'Account' },
+  { id: 'account-assistant', path: '/account/assistent', label: 'Wat de assistent kan zien' },
+  { id: 'account-handover', path: '/account/team-overdragen', label: 'Team overdragen' },
+  { id: 'account-delete', path: '/account/teamgegevens-verwijderen', label: 'Teamgegevens verwijderen' },
+]
+
 // The app shell: sidebar + header + the current page (Outlet)
 export default function AppLayout() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
 
   // Which page are we on? Read it from the URL.
-  const current =
-    navItems.find((item) => item.path === location.pathname) ??
-    (location.pathname === '/account'
-      ? { id: 'account', label: 'Account' }
-      : { id: 'not-found', label: 'Pagina niet gevonden' })
+  const current = [...navItems, ...otherPages].find((page) => page.path === location.pathname) ?? {
+    id: 'not-found',
+    label: 'Pagina niet gevonden',
+  }
 
   const active = current.id
 

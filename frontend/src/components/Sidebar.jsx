@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router'
 import { CalendarDays, House, ListChecks, Sparkles, Users, X } from 'lucide-react'
 import { club, user } from '../data/mockData.js'
-import { roleLabels } from '../constants/roles.js'
+import { getUserTitle } from '../constants/roles.js'
+import Avatar from './Avatar.jsx'
 import ClubLogo from './ClubLogo.jsx'
 
 // The menu. "soon" shows a small lime label for pages that are not built yet.
@@ -80,12 +81,10 @@ export default function Sidebar({ mobileOpen, onCloseMobile }) {
             }`
           }
         >
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-avatar text-xs font-bold text-body">
-            {user.initials}
-          </div>
+          <Avatar initials={user.initials} />
           <div className="min-w-0">
             <div className="truncate text-sm font-semibold text-sidebar-heading">{user.name}</div>
-            <div className="truncate text-xs text-muted">{roleLabels[user.role]}</div>
+            <div className="truncate text-xs text-muted">{getUserTitle(user)}</div>
           </div>
         </NavLink>
       </aside>

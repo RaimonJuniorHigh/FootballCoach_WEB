@@ -17,7 +17,7 @@ export default function LoginPage() {
         <ClubLogo variant="inverted" />
         <p className="mt-3 text-sm text-auth-muted">{club.name}</p>
 
-       <div className="my-8 flex flex-col gap-3">
+        <div className="my-8 flex flex-col gap-3">
           <h1 className="text-6xl leading-none font-extrabold tracking-tight">
             Coach
             <br />
@@ -30,8 +30,8 @@ export default function LoginPage() {
           <input
             name="email"
             type="email"
-            placeholder="E-mailadres"
-            aria-label="E-mailadres"
+            placeholder="E-mail"
+            aria-label="E-mail"
             autoComplete="email"
             className="input-auth"
           />
