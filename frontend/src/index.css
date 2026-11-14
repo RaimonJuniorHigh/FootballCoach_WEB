@@ -30,6 +30,8 @@
   --color-warn-soft: #fdebd8;
   --color-amber: #8a5a1c; /* "draft" */
   --color-amber-soft: #f6ebd9;
+  --color-red: #b42318; /* errors */
+  --color-red-soft: #fee4e2;
 
   /* Brand */
   --color-brand: var(--color-pitch);
@@ -90,6 +92,7 @@
   --color-auth-border: rgb(255 255 255 / 0.5);        /* input edge, 3.7:1 for WCAG; "transparent" to hide */
   --color-auth-focus: var(--color-lime);              /* focus ring on the green page */
   --color-auth-error: #fecaca;                        /* error text on the green page */
+  --color-auth-success: var(--color-mint);            /* success text on the green page, 8.0:1 */
 
   /* Lists */
   --color-divider: var(--color-line);   /* lines between rows */
@@ -97,6 +100,14 @@
 
   /* Avatar */
   --color-avatar-text: var(--color-body);
+
+  /* Status: feedback messages and badges on light backgrounds */
+  --color-success: var(--color-pitch);         /* 9.5:1 on white, 8.0:1 on soft */
+  --color-success-soft: var(--color-mint);
+  --color-warning: var(--color-amber);         /* 5.9:1 on white, 5.0:1 on soft */
+  --color-warning-soft: var(--color-amber-soft);
+  --color-error: var(--color-red);             /* 6.6:1 on white, 5.5:1 on soft */
+  --color-error-soft: var(--color-red-soft);
 
   /* Font sizes */
   --text-nav: 0.9375rem;   /* 15px */
@@ -142,6 +153,7 @@
   @apply h-control w-full rounded-input border border-auth-border bg-auth-input px-5 text-auth-text transition-colors
     placeholder:text-auth-muted
     focus:bg-auth-input-focus
+    aria-invalid:border-auth-error
     focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-auth-focus;
 }
 

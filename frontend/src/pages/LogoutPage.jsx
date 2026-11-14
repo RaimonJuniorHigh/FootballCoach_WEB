@@ -13,5 +13,6 @@ export default function LogoutPage() {
   // Still logged in for a moment: show nothing until logout() has run
   if (user) return null
 
-  return <Navigate to="/login" replace />
+  // Tell the login page why we're here, so it can confirm the logout
+  return <Navigate to="/login" replace state={{ loggedOut: true }} />
 }
