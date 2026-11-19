@@ -1,0 +1,9 @@
+export { ClubPlayerService } from "./club-player.service";
+export { DrillResultService } from "./drill-result.service";
+export { MatchPlayerService } from "./match-player.service";
+export { MatchService } from "./match.service";
+export { PlayerCardService } from "./player-card.service";
+export { PlayerService } from "./player.service";
+export { PositionWeightService } from "./position-weight.service";
+export { StatTypeService } from "./stat-type.service";
+export { TeamService } from "./team.service";

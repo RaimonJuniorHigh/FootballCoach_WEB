@@ -1,0 +1,10 @@
+export { ClubPlayerController } from "./club-player.controller";
+export { DrillResultController } from "./drill-result.controller";
+export { HealthController } from "./health.controller";
+export { MatchController } from "./match.controller";
+export { MatchPlayerController } from "./match-player.controller";
+export { PlayerCardController } from "./player-card.controller";
+export { PlayerController } from "./player.controller";
+export { PositionWeightController } from "./position-weight.controller";
+export { StatTypeController } from "./stat-type.controller";
+export { TeamController } from "./team.controller";

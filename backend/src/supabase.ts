@@ -23,7 +23,7 @@ function createMemoryStorage(): MemoryStorage {
 let client: SupabaseClient | undefined;
 let sessionReady: Promise<void> | undefined;
 
-function getClient(): SupabaseClient {
+export function getClient(): SupabaseClient {
   if (client) return client;
 
   const url = process.env.SUPABASE_URL;
@@ -72,13 +72,4 @@ export async function checkDatabase(): Promise<void> {
 
   const { error } = await getClient().from("teams").select("id").limit(1);
   if (error) throw error;
-}
-
-export async function fetchPlayerCards(): Promise<Record<string, unknown>[]> {
-  await ensureAnonymousSession();
-
-  const { data, error } = await getClient().from("player_cards").select("*");
-
-  if (error) throw error;
-  return data ?? [];
 }
