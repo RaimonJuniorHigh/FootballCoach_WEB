@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { createApp } from "./app";
-import { checkDatabase } from "./db";
+import { checkDatabase } from "./supabase";
 
 const port = Number(process.env.PORT) || 3000;
 const app = createApp({ checkDatabase });
