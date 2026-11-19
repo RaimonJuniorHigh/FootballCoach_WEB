@@ -2,4 +2,4 @@ node_modules/
 
 # Local agent notes. Do not publish.
 .docs/
-
+.cursor/
