@@ -1,5 +1,5 @@
 import { useNow } from '../hooks/useNow.js'
-import { coach } from '../data/mockData.js'
+import { useAuth } from '../auth/AuthContext.jsx'
 
 function getGreeting(hour) {
   if (hour < 6) return 'Goedenacht'
@@ -10,7 +10,8 @@ function getGreeting(hour) {
 
 export default function Greeting() {
   const now = useNow()
-  const firstName = coach.name.split(' ')[0]
+  const { user } = useAuth()
+  const firstName = user.name.split(' ')[0]
 
   return <>{getGreeting(now.getHours())}, {firstName}</>
 }

@@ -1,4 +1,4 @@
-import SessionCard from './SessionCard.jsx'
+import SessionCard from '../components/SessionCard.jsx'
 import { sessions } from '../data/mockData.js'
 
 export default function SessionsPage() {
