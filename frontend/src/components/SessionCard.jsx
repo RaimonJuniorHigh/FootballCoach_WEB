@@ -1,4 +1,5 @@
 import { CalendarDays, Clock, Users } from 'lucide-react'
+import { formatDate } from '../lib/dates.js'
 
 // Status -> badge styles. Write full class names out: Tailwind can't see
 // classes you build with strings like `bg-${color}`.
@@ -25,7 +26,7 @@ export default function SessionCard({ title, focus, date, duration, players, sta
       </span>
 
       <div className="flex flex-wrap gap-4 text-sm text-muted">
-        <span className="flex items-center gap-1.5"><CalendarDays size={16} />{date}</span>
+        <span className="flex items-center gap-1.5"><CalendarDays size={16} />{formatDate(date)}</span>
         <span className="flex items-center gap-1.5"><Clock size={16} />{duration} min</span>
         <span className="flex items-center gap-1.5"><Users size={16} />{players} spelers</span>
       </div>

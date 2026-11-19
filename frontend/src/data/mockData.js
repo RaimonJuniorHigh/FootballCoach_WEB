@@ -1,3 +1,5 @@
+import { isoFromToday } from '../lib/dates.js'
+
 // Fake data, until the backend is ready.
 // Later these values will come from an API instead of this file.
 
@@ -37,8 +39,16 @@ export const mockUsers = [
   },
 ]
 
+// Trainings. "date" is ISO ('YYYY-MM-DD'), relative to today so the mock data never goes stale.
+// "status": planned | draft | ai (upcoming) or done (past)
 export const sessions = [
-  { id: 1, title: 'Passen onder druk', focus: 'Passing', date: 'Do 12 nov', duration: 75, players: 16, status: 'planned' },
-  { id: 2, title: 'Afronden in de zestien', focus: 'Afronden', date: 'Za 14 nov', duration: 60, players: 14, status: 'draft' },
-  { id: 3, title: 'Omschakelen na balverlies', focus: 'Omschakelen', date: 'Di 17 nov', duration: 90, players: 18, status: 'ai' },
+  // Upcoming
+  { id: 1, title: 'Passen onder druk', focus: 'Passing', date: isoFromToday(2), duration: 75, players: 16, status: 'planned' },
+  { id: 2, title: 'Afronden in de zestien', focus: 'Afronden', date: isoFromToday(5), duration: 60, players: 14, status: 'draft' },
+  { id: 3, title: 'Omschakelen na balverlies', focus: 'Omschakelen', date: isoFromToday(9), duration: 90, players: 18, status: 'ai' },
+
+  // Past
+  { id: 4, title: 'Positiespel 4-tegen-2', focus: 'Positiespel', date: isoFromToday(-2), duration: 75, players: 15, status: 'done' },
+  { id: 5, title: 'Kopduels en standaardsituaties', focus: 'Standaardsituaties', date: isoFromToday(-5), duration: 60, players: 13, status: 'done' },
+  { id: 6, title: 'Pressing als team', focus: 'Pressing', date: isoFromToday(-9), duration: 90, players: 16, status: 'done' },
 ]
