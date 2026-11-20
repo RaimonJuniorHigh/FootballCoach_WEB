@@ -21,7 +21,12 @@ export default function SessionsPage() {
       {upcoming.length > 0 ? (
         <div className="grid gap-4 md:grid-cols-2">
           {upcoming.map((s) => (
-            <SessionCard key={s.id} {...s} onOpen={() => console.log('open', s.id)} />
+            <SessionCard
+              key={s.id}
+              {...s}
+              onOpen={() => console.log('open', s.id)}
+              onCreate={() => console.log('training maken', s.id)}
+            />
           ))}
         </div>
       ) : (

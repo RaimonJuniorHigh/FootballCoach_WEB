@@ -40,12 +40,12 @@ export const mockUsers = [
 ]
 
 // Trainings. "date" is ISO ('YYYY-MM-DD'), relative to today so the mock data never goes stale.
-// "status": planned | draft | ai (upcoming) or done (past)
+// "status": planned | draft | ai | empty (upcoming) or done (past)
 export const sessions = [
   // Upcoming
   { id: 1, title: 'Passen onder druk', focus: 'Passing', date: isoFromToday(2), duration: 75, players: 16, status: 'planned' },
-  { id: 2, title: 'Afronden in de zestien', focus: 'Afronden', date: isoFromToday(5), duration: 60, players: 14, status: 'draft' },
-  { id: 3, title: 'Omschakelen na balverlies', focus: 'Omschakelen', date: isoFromToday(9), duration: 90, players: 18, status: 'ai' },
+  { id: 2, title: null, focus: null, date: isoFromToday(5), duration: 90, players: null, status: 'empty' },
+  { id: 3, title: 'Afronden in de zestien', focus: 'Afronden', date: isoFromToday(9), duration: 60, players: 14, status: 'draft' },
 
   // Past
   { id: 4, title: 'Positiespel 4-tegen-2', focus: 'Positiespel', date: isoFromToday(-2), duration: 75, players: 15, status: 'done' },
