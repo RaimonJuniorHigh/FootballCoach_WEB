@@ -7,7 +7,7 @@ const statusStyles = {
   planned: { label: 'Gepland', className: 'bg-mint text-pitch' },
   draft: { label: 'Concept', className: 'bg-amber-soft text-amber' },
   ai: { label: 'AI-voorstel', className: 'bg-ai text-ai-text' },
-  empty: { label: 'Nog in te vullen', className: 'bg-line text-muted' },
+  empty: { label: 'Leeg', className: 'bg-line text-muted' },
 }
 
 export default function SessionCard({ title, focus, date, duration, players, status, onOpen, onCreate }) {
@@ -19,7 +19,7 @@ export default function SessionCard({ title, focus, date, duration, players, sta
       {/* What */}
       <div className="flex items-start justify-between gap-3">
         <h3 className={`text-lg font-bold tracking-tight ${isEmpty ? 'text-muted' : 'text-ink'}`}>
-          {isEmpty ? 'Trainingsmoment' : title}
+          {isEmpty ? 'Nog niet voorbereid' : title}
         </h3>
         <span className={`pill shrink-0 ${badge.className}`}>
           {badge.label}

@@ -97,6 +97,7 @@
   /* Lists */
   --color-divider: var(--color-line);   /* lines between rows */
   --color-danger: var(--color-warn);    /* destructive actions, 7:1 on white */
+  --color-row-hover: color-mix(in oklab, var(--color-page) 60%, transparent);   /* table row under the mouse: page background at 60% */
 
   /* Avatar */
   --color-avatar-text: var(--color-body);
@@ -113,9 +114,20 @@
   --text-nav: 0.9375rem;   /* 15px */
   --text-meta: 0.8125rem;  /* 13px */
 
+  /* Headings: one role per kind of title */
+  --text-page-title: 1.875rem;                    /* 30px: the h1 in the header */
+  --text-page-title--line-height: 2.25rem;        /* 36px */
+  --text-page-title--letter-spacing: -0.025em;
+  --text-page-title--font-weight: 700;
+
+  --text-section-title: 1.125rem;                 /* 18px: h2 above a section */
+  --text-section-title--line-height: 1.75rem;     /* 28px */
+  --text-section-title--letter-spacing: -0.025em;
+  --text-section-title--font-weight: 700;
+
   /* Layout */
   --spacing-topbar: 8rem;     /* 128px: header and sidebar logo row */
-  --spacing-page: calc((var(--spacing-topbar) - 2.25rem) / 2);   /* = space above the page title, so content is inset evenly from top and left */
+  --spacing-page: calc((var(--spacing-topbar) - var(--text-page-title--line-height)) / 2);   /* = space above the page title, so content is inset evenly from top and left */
   --spacing-sidebar: 16rem;   /* 256px */
   --spacing-control: 3rem;    /* 48px: height of inputs and buttons that sit together */
   --container-content: 32rem;   /* 512px: max width of one-column pages (account, forms) */
