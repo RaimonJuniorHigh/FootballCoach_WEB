@@ -58,13 +58,15 @@ export default function AccountPage() {
       </dl>
 
       {/* Privacy */}
-      <h2 className="mt-6 text-xl font-bold tracking-tight">Privacy</h2>
-      <ul className="card divide-y divide-divider px-6">
+      <h2 className="mt-6 text-section-title">Privacy</h2>
+      <ul className="card divide-y divide-divider overflow-hidden px-6">
         {privacyLinks.map(({ label, to, danger }) => (
           <li key={to}>
             <Link
               to={to}
-              className={`flex items-center justify-between gap-4 py-4 ${danger ? 'text-danger' : ''}`}
+              className={`-mx-6 flex items-center justify-between gap-4 px-6 py-4 transition-colors hover:bg-row-hover
+                focus-visible:bg-row-hover focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus
+                ${danger ? 'text-danger' : ''}`}
             >
               {label}
               <ChevronRight size={18} className="shrink-0 text-muted" />
