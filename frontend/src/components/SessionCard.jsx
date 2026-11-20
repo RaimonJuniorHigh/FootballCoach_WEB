@@ -15,7 +15,7 @@ export default function SessionCard({ title, focus, date, duration, players, sta
   const isEmpty = status === 'empty'
 
   return (
-    <article className="card flex flex-col gap-4 p-5 transition-shadow hover:shadow-md">
+    <article className="card flex flex-col gap-4 p-card transition-shadow hover:shadow-md">
       {/* What */}
       <div className="flex items-start justify-between gap-3">
         <h3 className={`text-lg font-bold tracking-tight ${isEmpty ? 'text-muted' : 'text-ink'}`}>

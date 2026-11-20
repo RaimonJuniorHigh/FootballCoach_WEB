@@ -37,7 +37,7 @@ export default function AccountPage() {
   return (
     <div className="flex max-w-content flex-col gap-3">
       {/* Profile */}
-      <section className="card flex items-center gap-5 p-6">
+      <section className="card flex items-center gap-5 p-card">
         <Avatar initials={user.initials} size="lg" />
         <div>
           <h2 className="text-2xl font-bold tracking-tight">{user.name}</h2>
@@ -48,7 +48,7 @@ export default function AccountPage() {
       </section>
 
       {/* Details */}
-      <dl className="card divide-y divide-divider px-6">
+      <dl className="card divide-y divide-divider px-card">
         {details.map(({ label, value }) => (
           <div key={label} className="flex items-center justify-between gap-4 py-4">
             <dt>{label}</dt>
@@ -59,17 +59,17 @@ export default function AccountPage() {
 
       {/* Privacy */}
       <h2 className="mt-6 text-section-title">Privacy</h2>
-      <ul className="card divide-y divide-divider overflow-hidden px-6">
+      <ul className="card divide-y divide-divider overflow-hidden px-card">
         {privacyLinks.map(({ label, to, danger }) => (
           <li key={to}>
             <Link
               to={to}
-              className={`-mx-6 flex items-center justify-between gap-4 px-6 py-4 transition-colors hover:bg-row-hover
+              className={`-mx-card flex items-center justify-between gap-4 px-card py-4 transition-colors hover:bg-row-hover
                 focus-visible:bg-row-hover focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus
                 ${danger ? 'text-danger' : ''}`}
             >
               {label}
-              <ChevronRight size={18} className="shrink-0 text-muted" />
+              <ChevronRight size={18} className="-mr-1.5 shrink-0 text-muted" />
             </Link>
           </li>
         ))}
