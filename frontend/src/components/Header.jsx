@@ -11,7 +11,7 @@ export default function Header({ title, onOpenMenu, children }) {
         <Menu size={20} />
       </button>
 
-      <h1 className="text-3xl font-bold tracking-tight text-header-text">{title}</h1>
+      <h1 className="text-page-title text-header-text">{title}</h1>
 
       {/* Page-specific actions (buttons, greeting) go on the right */}
       {children && <div className="ml-auto flex items-center gap-2">{children}</div>}
