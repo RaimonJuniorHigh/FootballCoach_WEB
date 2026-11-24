@@ -77,7 +77,7 @@ export default function LoginPage() {
             <br />
             assistent
           </h1>
-          <p className="leading-tight text-auth-muted">Sessions drafted for you. Approved by you.</p>
+          <p className="leading-tight text-auth-muted">Trainingen voorgesteld op maat. Jij bepaalt.</p>
         </div>
 
         <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
