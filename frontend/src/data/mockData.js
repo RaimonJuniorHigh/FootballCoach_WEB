@@ -52,3 +52,16 @@ export const sessions = [
   { id: 5, title: 'Kopduels en standaardsituaties', focus: 'Standaardsituaties', date: isoFromToday(-5), duration: 60, players: 13, status: 'done' },
   { id: 6, title: 'Pressing als team', focus: 'Pressing', date: isoFromToday(-9), duration: 90, players: 16, status: 'done' },
 ]
+
+// Players of the team. "position" is a code from constants/positions.js.
+// "status" is provisional: its meaning is still to be decided with the team.
+export const players = [
+  { id: 1, name: 'Daan Verhoeven', initials: 'DV', position: 'keeper', openPoints: 1, attendance: 100, status: 'in' },
+  { id: 2, name: 'Noah Bakker', initials: 'NB', position: 'right-back', openPoints: 3, attendance: 92, status: 'stalled' },
+  { id: 3, name: 'Thijs Peeters', initials: 'TP', position: 'centre-back', openPoints: 0, attendance: 75, status: 'out' },
+  { id: 4, name: 'Ruben Geurts', initials: 'RG', position: 'centre-back', openPoints: 0, attendance: 96, status: 'in' },
+  { id: 5, name: 'Jesse Daniëls', initials: 'JD', position: 'midfielder', openPoints: 1, attendance: 88, status: 'review' },
+  { id: 6, name: 'Bram Maas', initials: 'BM', position: 'midfielder', openPoints: 0, attendance: 100, status: 'in' },
+  { id: 7, name: 'Mees Koolen', initials: 'MK', position: 'left-wing', openPoints: 0, attendance: 92, status: 'in' },
+  { id: 8, name: 'Luuk Bekkers', initials: 'LB', position: 'striker', openPoints: 1, attendance: 96, status: 'in' },
+]

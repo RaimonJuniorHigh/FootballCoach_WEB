@@ -6,6 +6,8 @@ import LogoutPage from './pages/LogoutPage.jsx'
 import AccountPage from './pages/AccountPage.jsx'
 import SessionsPage from './pages/SessionsPage.jsx'
 import PlaceholderPage from './pages/PlaceholderPage.jsx'
+import TeamPage from './pages/TeamPage.jsx'
+import PlayerPage from './pages/PlayerPage.jsx'
 
 export default function App() {
   return (
@@ -19,7 +21,8 @@ export default function App() {
         {/* Pages inside the app shell (sidebar + header) */}
         <Route element={<AppLayout />}>
           <Route path="/" element={<PlaceholderPage label="Vandaag" />} />
-          <Route path="/team" element={<PlaceholderPage label="Team" />} />
+          <Route path="/team" element={<TeamPage />} />
+          <Route path="/team/:playerId" element={<PlayerPage />} />
           <Route path="/trainingen" element={<SessionsPage />} />
           <Route path="/oefeningen" element={<PlaceholderPage label="Oefeningen" />} />
           <Route path="/ai-assistent" element={<PlaceholderPage label="AI Assistant" />} />
